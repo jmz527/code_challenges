@@ -2,23 +2,17 @@
 var marble_bag = ['red', 'blue', 'green', 'blue', 'red'];
 
 function bagOfMarbles(bag) {
-	var marble, r;
+	var marble;
 
-	// Generates a random number to simulate the selection process:
-	function randomIndex(max) {
-		return Math.floor(Math.random() * max);
-	}
-
-	// Returns randomly selected marble
+	// Generates a random number to simulate the selection process, and returns randomly selected marble
 	function selectMarble(arry) {
-		r = randomIndex(arry.length);
-		return arry.splice(r, 1)[0];
+		return arry.splice((Math.floor(Math.random() * (arry.length))), 1)[0];
 	}
 
 	// Loops through the bag array, until empty:
 	for (i = bag.length; i > 0; i--) {
 		marble = selectMarble(bag);
-	    console.log(marble);
+		console.log(marble);
 	}
 }
 // bagOfMarbles(marble_bag);
@@ -28,25 +22,23 @@ function bagOfMarbles(bag) {
 // I would have the marble bag be an object with color/amount key-values:
 var marble_bag_two = {red: 2000, blue: 5000, green: 3000 };
 
-function bagOfThousandsOfMarbles(bag) {
-	var marble, rKey, Ms, l;
-	l = Object.keys(bag).length;
+function bagOfThousands(bag) {
+	var keyArr, rKey, l, marble;
+	
+	// Initial variables:
+	keyArr = Object.keys(bag);
+	l = keyArr.length;
 
-	// Generates a random key to simulate the selection process:
-	function randomKey(keyArray) {
-		return keyArray[Math.floor(Math.random() * keyArray.length)];
-	}
+	// Selects a random marble key to simulate the selection process, and returns the key, and decreases the key-value by 1:
+	function selectMarble(bag) {
+		rKey = keyArr[Math.floor(Math.random() * l)];
+		bag[rKey] = bag[rKey]-1;
 
-	// Returns randomly selected marble, and decreases the object's key-value by 1
-	function selectMarble(obj) {
-		rKey = randomKey(Object.keys(obj));
-		Ms = obj[rKey];
-		Ms--;
-		obj[rKey] = Ms;
-
-		if (Ms === 0) {
-			delete obj[rKey];
-			l--;
+		// If the marble key-value is depleated, delete the entry and reset key array and length:
+		if (bag[rKey] === 0) {
+			delete bag[rKey];
+			keyArr = Object.keys(bag);
+			l = keyArr.length;
 		}
 		return rKey;
 	}
@@ -55,16 +47,16 @@ function bagOfThousandsOfMarbles(bag) {
 	while (l > 0) {
 		marble = selectMarble(bag);
 		console.log(marble);
-	}
+	}	
 }
-// bagOfThousandsOfMarbles(marble_bag_two);
+// bagOfThousands(bag);
 
 
 // If marble bag had thousands of Colors,
 // I would have the marble bag be an array of arrays:
-var bag = [['red', 2],['blue', 2],['green', 2],['purple', 2],['yellow', 2],['orange', 2]];
+var marble_bag_three = [['red', 2],['blue', 2],['green', 2],['purple', 2],['yellow', 2],['orange', 2]];
 
-function bagMarbles(bag) {
+function bagOfThousandsOfColors(bag) {
 	var l, marble;
 	l = bag.length;
 
@@ -99,3 +91,4 @@ function bagMarbles(bag) {
 		console.log('Marble: ' + marble);
 	}
 }
+// bagOfThousandsOfColors(marble_bag_three);
