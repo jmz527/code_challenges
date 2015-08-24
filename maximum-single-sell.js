@@ -7,20 +7,34 @@ var even_arry = [4, 2, 6, 8, 10, 12];
 var odd_arry = [3, 1, 5, 7, 9];
 var doubles_arry = [1, 3, 1, 10];
 
+// Set profit to zero and set initial min to first indexed item
+// Loop through, first calculating if next item is the new min
+// If not, calculate the new profit
+function maxProf(arr) {
+	var min = arr[0];
+	var minDay = 1;
+	var profit = 0;
+	var max, maxDay;
 
+	for (i=1; i<arr.length;i++) {
+	    p = arr[i] - min;
+	    if (p > profit) {
+	        profit = p;
+	        max = arr[i];
+	        maxDay = i+1;
+	        console.log(p);
+	    }
+	    
+	    if (arr[i] < min) {
+	        min = arr[i];
+	        minDay = i+1;
+	    }
+// 		console.log(arr[i]);
+	}
 
-
-
-// Best program would be one that finds the low in the array
-// then looks for the high out of all the entries after.
-// If there aren't any, it should find the next lowest and repeat.
-
-
-
-
-
-
-
+	console.log('The maximum profit would have been ' + profit + ', by buying at ' + min + ' on day ' + minDay + ' and selling at ' + max + ' on day ' + maxDay);
+	// console.log(min + ' | ' + max + ' | ' + profit);
+}
 
 
 function maxProf(array) {
@@ -35,9 +49,6 @@ function maxProf(array) {
     console.log('Max: ' + max);
     console.log('Profit: ' + profit);
 }
-
-
-
 
 // Returns the maximum possible profit given array of NAVs
 function maxProfit(arry) {

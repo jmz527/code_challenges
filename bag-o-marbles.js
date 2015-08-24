@@ -30,6 +30,25 @@ function Marbles(bag) {
 	}
 }
 
+// 3.
+function randomMarbles(bag) {
+	var marble, r;
+
+	function randomIndex(max) {
+		return Math.floor(Math.random() * max);
+	}
+
+	function selectMarble(arry) {
+		r = randomIndex(arry.length);
+		return arry.splice(r, 1)[0];
+	}
+
+	for (i = bag.length; i > 0; i--) {
+		marble = selectMarble(bag);
+	    console.log(marble);
+	}
+}
+
 
 
 // Runtime complexity of selectMarble?
@@ -40,32 +59,48 @@ function Marbles(bag) {
 
 // Change program for thousands of marbles
 
-
-var marble_bag = {red: 20, blue: 50, green: 30 };
+// 2.
+var bag = {red: 20, blue: 50, green: 30 };
+// var bag = {red: 2, blue: 2, green: 2};
 // This is for the object with string-number key-values
 function bagMarbles(bag) {
-    // console.log(bag.blue);
-    
-    for (var key in bag) {
-        var val = bag[key];
-        
-        for (var v = val-1; v>-1; v--) {
-            console.log(key);
-            bag[key] = v;
-            // console.log(bag.key);
-        }
-        // console.log('Key: ' + key + ' | Value: ' + val)
-    }
+	var marble, rKey, Ms, l;
+	l = Object.keys(bag).length;
+
+	function randomKey(keyArray) {
+		return keyArray[Math.floor(Math.random() * keyArray.length)];
+	}
+
+	function selectMarble(obj) {
+		rKey = randomKey(Object.keys(obj));
+		Ms = obj[rKey];
+		Ms--;
+// 		console.log(Ms);
+		obj[rKey] = Ms;
+
+		// console.log(rKey);
+// 		console.log(obj[rKey]);
+
+		if (Ms === 0) {
+// 			console.log(rKey + ' deleted');
+			delete obj[rKey];
+			l--;
+		}
+		return rKey;
+	}
+
+	while (l > 0) {
+		marble = selectMarble(bag);
+		console.log(marble);
+	}
 }
 
-
-// Change program for thousands of Colors...I wouldn't?
-
-
-// var marble_bag = {red: 1, blue: 1, green: 1, yellow: 1, purple: 1, orange: 1 };
-// This is for the object with string-number key-values
+// 1.
+// var marble_bag = {red: 20, blue: 50, green: 30 };
+// // This is for the object with string-number key-values
 // function bagMarbles(bag) {
-
+//     // console.log(bag.blue);
+    
 //     for (var key in bag) {
 //         var val = bag[key];
         
@@ -74,7 +109,52 @@ function bagMarbles(bag) {
 //             bag[key] = v;
 //             // console.log(bag.key);
 //         }
-//         // console.log(bag);
-//         // console.log('Key: ' + key + ' | Value: ' + val);
+//         // console.log('Key: ' + key + ' | Value: ' + val)
 //     }
 // }
+
+
+
+
+
+
+
+// Change program for thousands of Colors
+
+var bag = [['red', 2],['blue', 2],['green', 2],['purple', 2],['yellow', 2],['orange', 2]];
+
+// This is for the object with string-number key-values
+function bagMarbles(bag) {
+	var l;
+	l = bag.length;
+
+	function randomMarble(array) {
+		return array.splice(Math.floor(Math.random() * array.length), 1);
+	}
+
+	function selectMarble(arr) {
+		var marble, marbleItem, marbleCount;
+		marbleItem = randomMarble(arr)[0];
+		marble = marbleItem[0];
+		marbleCount = marbleItem[1];
+		marbleCount--;
+		marbleItem = [marble, marbleCount];
+		
+		console.log(marbleItem);
+		
+		if (marbleCount > 0) {
+		    arr.push(marbleItem);   
+		}
+        console.log(arr);
+	}
+
+	// while (l > 0) {
+	// 	marble = selectMarble(bag);
+// 		console.log(marble);
+	// }
+
+// 	console.log(l);
+	selectMarble(bag);
+}
+
+
