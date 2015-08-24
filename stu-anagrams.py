@@ -1,3 +1,5 @@
+import collections
+
 def find_anagrams(dictionary):
     # build a dict whose keys are the alphabetically sorted letters of the word
     d = collections.defaultdict(list)

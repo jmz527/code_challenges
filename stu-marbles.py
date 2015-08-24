@@ -1,7 +1,6 @@
 # http://stackoverflow.com/questions/3679694/a-weighted-version-of-random-choice
 import random
 
-
 class Bag(object):
     def __init__(self, red=0, green=0, blue=0):
         self.color = {'red': red, 'green': green, 'blue': blue}
@@ -15,6 +14,5 @@ class Bag(object):
                 self.color[color] -= 1
                 return color
             upto += count
-
 
 bag = Bag(red=10, green=2, blue=1)
