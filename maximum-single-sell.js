@@ -23,6 +23,21 @@ var doubles_arry = [1, 3, 1, 10];
 
 
 
+function maxProf(array) {
+    var max, min, profit;
+    
+    min = Math.min.apply(null, array);
+    max = Math.max.apply(null, array);
+    
+    profit = max - min;
+
+    console.log('Min: ' + min);
+    console.log('Max: ' + max);
+    console.log('Profit: ' + profit);
+}
+
+
+
 
 // Returns the maximum possible profit given array of NAVs
 function maxProfit(arry) {
