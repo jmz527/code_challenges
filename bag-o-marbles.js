@@ -125,7 +125,7 @@ var bag = [['red', 2],['blue', 2],['green', 2],['purple', 2],['yellow', 2],['ora
 
 // This is for the object with string-number key-values
 function bagMarbles(bag) {
-	var l;
+	var l, marble;
 	l = bag.length;
 
 	function randomMarble(array) {
@@ -135,26 +135,31 @@ function bagMarbles(bag) {
 	function selectMarble(arr) {
 		var marble, marbleItem, marbleCount;
 		marbleItem = randomMarble(arr)[0];
+// 		console.log(marbleItem);
 		marble = marbleItem[0];
 		marbleCount = marbleItem[1];
 		marbleCount--;
 		marbleItem = [marble, marbleCount];
 		
-		console.log(marbleItem);
-		
 		if (marbleCount > 0) {
 		    arr.push(marbleItem);   
 		}
-        console.log(arr);
+		else if (marbleCount === 0) {
+		    l--;
+		  //  console.log(l);
+		}
+        // console.log(arr);
+        
+        return marble;
 	}
 
-	// while (l > 0) {
-	// 	marble = selectMarble(bag);
-// 		console.log(marble);
-	// }
+	while (l > 0) {
+		marble = selectMarble(bag);
+		console.log('Marble: ' + marble);
+	}
 
 // 	console.log(l);
-	selectMarble(bag);
+// 	selectMarble(bag);
 }
 
 
