@@ -91,9 +91,6 @@ function bagOfThousands(bag) {
 	var keyArr, rKey, l, marble;
 
 	function selectMarble(bag) {
-	    keyArr = Object.keys(bag);
-	    l = keyArr.length;
-	   
 		rKey = keyArr[Math.floor(Math.random() * l)];
 		n = bag[rKey]-1;
 		bag[rKey] = n;
@@ -106,29 +103,27 @@ function bagOfThousands(bag) {
 		return rKey;
 	}
 	
-	function loopBag() {
+	function loopBag(bag) {
+		keyArr = Object.keys(bag);
+	    l = keyArr.length;
+
 	    while (l > 0) {
-		    selectMarble(bag);
-	    	l = 0;
-    // 		console.log(marble);
+		    marble = selectMarble(bag);
+	    	console.log(l);
+    		console.log(marble);
     	}	
 	}
-	
-// 	marble = selectMarble(bag);
-
-
-    // selectMarble(bag);
 
 // 		console.log(bag[rKey]);
 // 		console.log(bag);
 // 		console.log(rKey);
 // 		console.log(keyArr);
-	    console.log(l);
+	   // console.log(l);
 // 	    console.log('------');
 	   // console.log(marble);
 
-
-	return marble;
+    loopBag(bag);
+// 	return marble;
 }
 // bagOfThousands(bag);
 
