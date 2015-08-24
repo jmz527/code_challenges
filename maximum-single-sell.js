@@ -8,25 +8,46 @@ var odd_arry = [3, 1, 5, 7, 9];
 var doubles_arry = [1, 3, 1, 10];
 
 
+
+
+
+// Best program would be one that finds the low in the array
+// then looks for the high out of all the entries after.
+// If there aren't any, it should find the next lowest and repeat.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Returns the maximum possible profit given array of NAVs
 function maxProfit(arry) {
 	var dupe_arry = arry;
-	var n;
+	var n, high, low;
 	var max = 0;
 	var min = 100;
 
-	function Max(old_max, high) {
+	function minMax(old_max, high, old_min, low) {
 		if (high > old_max) {
 			max = high;
 		}
-		return max;
-	}
-
-	function Min(old_min, low) {
 		if (low < old_min) {
 			min = low;
 		}
-		return min;
 	}
 
 	for (i=0; i<dupe_arry.length;i++) {
@@ -34,22 +55,17 @@ function maxProfit(arry) {
 		if (dupe_arry[i] < n) {
 			low = dupe_arry[i];
 			high = n;
-
 			// console.log('Low: ' + low + ', High: ' + high);
 		}
 		else if (dupe_arry[i] > n) {
 			high = dupe_arry[i];
 			low = n;
-
 			// console.log('Low: ' + low + ', High: ' + high);
 		}
 		else if (dupe_arry[i] === n) {
-			// Pop neither, make contingency plan
 			// console.log('Hold up, now! ' + dupe_arry[i] + ' is equal to ' + n);
 		}
-
-		Max(max, high);
-		Min(min, low);
+		minMax(max, high, min, low);
 
 		// console.log('last number: ' + n + ' this number: ' + dupe_arry[i]);
 		// console.log('-------');
@@ -57,9 +73,8 @@ function maxProfit(arry) {
 		// console.log('-------');
 		n = dupe_arry[i];
 	}
-
-	// console.log(max);
-	// console.log(min);
+	console.log(max);
+	console.log(min);
 }
 
 // Big-O notation
