@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9920\viewh15380\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 1. http request\
+\
+When you enter \'93yahoo.com\'94 into your browser and hit enter, first your browser checks your local cache to see if you have those files saved from a previous visit. If not, then your OS takes the URL and looks up the IP address from a DNS. The browser opens a TCP connection to yahoo\'92s server (looks like yahoo is using HTTPS here, in which case this step would be much more complicated), then your client sends an HTTP request. The server responds by sending back the http data, in this case, several packets of information containing the yahoo site files. Your browser receives these packets, decodes the response if needed, caches the resulting page, and creates a document object model which is the last layer before the visual representation of yahoo.com on your screen.\
+\
+2. latency vs throughput\
+\
+Throughput is the number of messages successfully delivered, given a certain time window. It is almost identical to bandwidth, except you have to factor in single-to-noise ratio of your hardware.\
+\
+Latency is the time delay between an action and the physical change of the system. It is a component of throughput, and it can not be faster than the speed of light.\
+\
+\
+3. deadlock\
+\
+A deadlock happens when two programs are politely waiting for the other to finish, thus causing a halt to the processing of both. This is kind of the opposite of a race condition, where two programs are competing for the same CPU bandwidth and one wins out over the other. Deadlocks tend to happen more frequently when the middlewear on servers are using multiple threads.\
+\
+\
+4. clustered vs non-clustered index\
+\
+A clustered-index reorders the way a database table is structured, making it easier to query the data based off that columns contents. You can only have one clustered-index per table. A non-clustered index is actually in a separate table, wherein the index column is aligned with a column of pointer ID\'92s. \
+\
+\
+5. I/O bound vs CPU bound\
+\
+I/O Bound Programs (typically bound for the disk, but potentially could be bound for other I/O subsystems) are usually looking through huge files, reading large amounts of data.\
+Saving large quantities of data in a database, for instance.\
+\
+CPU Bound Programs are typically doing computational work, anything that requires logic switches, crunching numbers. Typically these programs are more graphic intensive. Web Developers especially should be aware of CPU-Bound programs because they are where you want to optimize your code.\
+\
+\
+\
+6. Stock Algorithm: See max-single-sell.js\
+\
+a) The runtime complexity of my solution is O(n).\
+\
+\
+\
+7. Marble Algorithm: See simple_marbles.js\
+\
+a) The runtime complexity of my selectMarble function is O(n).\
+\
+b) The runtime complexity of my solution is O(n).\
+\
+c) See complex_marbles.js\
+\
+d) See colorful_marbles.js\
+\
+\
+\
+8. Dictionary Algorithm: See anagrama.js\
+\
+\
+9. Battleship Program\
+\
+a) If built using Ruby, you would need classes for Games, Players, Fleets, Ships, and Grids.\
+\
+b) The fire method would take inputted coordinates, (a, 1) for example, and check the other player\'92s board matrix to see if that cross-section has a part of a ship in it. If so, it will detract health points from the ship nested under that player. It would also change the first player\'92s strategical grid, to show a hit.\
+\
+c) Either the Ship object would have an attribute of \'93sunk\'94 that would be either true of false, or you could delete the Ship entirely from the Players object.\
+\
+d) See battleship folder for where I was going with this (ran out of time due to other obligations). But to answer the question, the best program would be one that runs a function to find the statistical likelihood of the opponents fleet position, while taking into account all prior hits and misses.\
+}
