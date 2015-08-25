@@ -1,18 +1,11 @@
 // Battleship
+var prompt = require('prompt');
 
-// What would it's strategy be? [Hint running calculations quickly]
-
-
-
-// RULES
-// Two players
-var playerOne, playerTwo;
-
-playerOne = {board: null, grid: null, fleet: null};
-playerTwo = {board: null, grid: null, fleet: null};
-
-// Four grids, each 10x10, identified by letter and number
-// Two are actual battlefields, the other two are tracking grids
+// Battleship
+var newPlayers = {
+	'playerOne': {board: null, grid: null, fleet: null},
+	'playerTwo': {board: null, grid: null, fleet: null},
+};
 
 var newGrid = {	A1: null, A2: null, A3: null, A4: null, A5: null, A6: null, A7: null, A8: null, A9: null, A10: null, 
 					B1: null, B2: null, B3: null, B4: null, B5: null, B6: null, B7: null, B8: null, B9: null, B10: null, 
@@ -26,15 +19,6 @@ var newGrid = {	A1: null, A2: null, A3: null, A4: null, A5: null, A6: null, A7: 
 					J1: null, J2: null, J3: null, J4: null, J5: null, J6: null, J7: null, J8: null, J9: null, J10: null, 
 					}
 
-
-// Ships
-// Aircraft carrier, size 5
-// Battleship, size 4
-// Submarine, size 3
-// Destroyer (or Cruiser), size 3
-// Patrol boat, size 2
-var playerOneFleet, playerTwoFleet;
-
 var newFleet = {
 	arcraft_carrier: {health: 5, position: [], sunk: false}, 
 	battleship: {health: 4, position: [], sunk: false}, 
@@ -43,12 +27,31 @@ var newFleet = {
 	cruiser: {health: 2, position: [], sunk: false}
 }
 
+function playBattleship() {
+    function newGame() {    
+		var game = newPlayers;
+// 		game.playerOne.board = newGrid;
+	// 	game.playerOne.grid = newGrid;
+		game.playerOne.fleet = newFleet;
+	// 	game.playerTwo.board = newGrid;
+	// 	game.playerTwo.grid = newGrid;
+	// 	game.playerTwo.fleet = newFleet;  
+
+		return game;
+	}
+
+	game = newGame();
+	game.playerOne.fleet.arcraft_carrier.position = ['A1', 'A2', 'A3', 'A4', 'A5'];
+	game.playerOne.fleet.battleship.position = ['B1', 'B2', 'B3', 'B4'];
+	game.playerOne.fleet.submarine.position = ['C1', 'C2', 'C3'];
+	game.playerOne.fleet.destroyer.position = ['D1', 'D2', 'D3'];
+	game.playerOne.fleet.cruiser.position = ['E1', 'E2'];
+	
+	console.log(game.playerOne.fleet);
+// 	console.log(game.playerOne);
+}
 
 // Shots that miss are marked with a white peg, while...
 //..shots that hit are marked with a red peg
 
-
-
-
 var newGame = {};
-

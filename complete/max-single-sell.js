@@ -24,4 +24,4 @@ function maxProf(arr) {
 	console.log('The maximum profit would have been ' + profit + ', by buying at ' + min + ' on day ' + minDay + ' and selling at ' + max + ' on day ' + maxDay);
 }
 
-// This program takes O(n) time and it only uses O(1) auxiliary storage.
+// This program takes O(n) time.

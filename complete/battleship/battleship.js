@@ -42,24 +42,27 @@ function newGame() {
 }
 
 function shipPlacement() {
-	game.playerOne.fleet.arcraft_carrier.position = ['a1', 'a2', 'a3', 'a4', 'a5'];
-	game.playerOne.fleet.battleship.position = ['b1', 'b2', 'b3', 'b4'];
-	game.playerOne.fleet.submarine.position = ['c1', 'c2', 'c3'];
-	game.playerOne.fleet.destroyer.position = ['d1', 'd2', 'd3'];
-	game.playerOne.fleet.cruiser.position = ['e1', 'e2'];
+	// game.playerOne.fleet.arcraft_carrier.position = ['a1', 'a2', 'a3', 'a4', 'a5'];
+	// game.playerOne.fleet.battleship.position = ['b1', 'b2', 'b3', 'b4'];
+	// game.playerOne.fleet.submarine.position = ['c1', 'c2', 'c3'];
+	// game.playerOne.fleet.destroyer.position = ['d1', 'd2', 'd3'];
+	// game.playerOne.fleet.cruiser.position = ['e1', 'e2'];
 }
 
 function printBoard(board) {
 	keyArr = Object.keys(board)
 
+    console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 	for (i=0; i < 10; i++) {
 		// console.log(keyArr[i]);
 		letter = keyArr[i];
+		row = [];
 
-		// for (i=0; i < 10; i++) {
-			
-		// }
-		console.log(board[letter]);
+		for (b=1; b < 11; b++) {
+		    row.push(board[letter][b]);
+// 			console.log(row);
+		}
+		console.log(keyArr[i] + row);
 	}
 
 	// console.log(keyArr);

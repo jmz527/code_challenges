@@ -1,5 +1,4 @@
 // Battleship
-
 var newPlayers = {
 	'playerOne': {board: null, grid: null, fleet: null},
 	'playerTwo': {board: null, grid: null, fleet: null},
